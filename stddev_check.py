@@ -5,6 +5,8 @@ particular example) into the residual list.
 The std_dev function first calculates the total number of entries or size
 of the population. Next, the function calculates the average value simply.
 The standard deviation is then calculated over the residual list.
+
+--Towsifa Akhter
 '''
 
 import ROOT, sys, os, array, math
