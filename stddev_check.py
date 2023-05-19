@@ -1,4 +1,5 @@
 '''
+
 The code below takes a root file as 'f', goes through the ttree 'event'.
 It stores values from a particular branch (RdPhi_Corrected in this 
 particular example) into the residual list.
