@@ -87,7 +87,7 @@ cut = "(prop_location[2]==14 || prop_location[2]==16 || prop_location[2]==18 || 
 
 h = [h1, h2, h3, h4, h5, h6, h7, h8]
 
-for eta in [1,8]:#range(1, 9):
+for eta in range(1, 9):
   event.Project("h{i}".format(i=eta), "{x}".format(x=x_plot), "muon_pt>{low} && muon_pt<{high} && n_ME11_segment==1 && has_fidcut && abs(RdPhi_Corrected) < 2 && prop_location[0]=={reg} && prop_location[3]=={lay} && prop_location[4]=={eta} && rechit_CLS=={cls} && has_TightID && {cut}".format(low=low_pt, high=high_pt, reg=endcap, lay=layer, cls=cls, eta=eta, cut=cut))
 
   h[eta-1].SetLineWidth(3) #3
