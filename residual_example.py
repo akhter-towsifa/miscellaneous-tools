@@ -54,7 +54,7 @@ xAxis.SetTitle("#DeltaR#phi [cm]")
 yAxis = h0.GetYaxis()
 yAxis.SetTitleOffset(0)
 yAxis.SetTitleSize(0.05)
-yAxis.SetTitle("A.U.")
+yAxis.SetTitle("Entries")
 
 #layer = prop_location[3]
 #chamber = prop_location[2]
