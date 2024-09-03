@@ -60,22 +60,11 @@ yAxis.SetTitle("A.U.")
 #chamber = prop_location[2]
 #region or endcap = prop_location[0]
 
-event.Project("h0", "RdPhi_Corrected", "muon_pt>{low} && muon_pt<{high} && n_ME11_segment==1 && has_fidcut && abs(RdPhi_Corrected) < 2 && prop_location[0]=={reg} && prop_location[3]=={lay}".format(low=low_pt, high=10, reg=endcap, lay=layer))
+event.Project("h0", "RdPhi_Corrected", "muon_pt>{low} && muon_pt<{high} && has_fidcut && abs(RdPhi_Corrected) < 2 && prop_location[0]=={reg} && prop_location[3]=={lay}".format(low=low_pt, high=high_pt, reg=endcap, lay=layer))
 
-h0.Scale(1/h0.Integral())
 h0.SetLineWidth(3)
 h0.SetMarkerSize(0)
 h0.Draw("HIST")
-
-#f1 = ROOT.TF1("f1", "[0]* exp([1]*x**2 + [2]) + [3]* exp([4]*x**2 + [5])", -1.5, 1.5)
-#f1 = ROOT.TF1("f1", "[0]* exp(-0.5*((x-[1])/[2])**2) + [3]* exp(-0.5*((x-[4])/[5])**2)", gaus_low, gaus_high)
-#f1 = ROOT.TF1("f1", "gaus(0)+gaus(3)", gaus_low, gaus_high)
-#f1.SetParameters(h.GetMaximum(), h.GetMean(), h.GetStdDev(), h.GetMaximum(), h.GetMean(), h.GetStdDev())
-#f1.SetParameters(.1,.1,.1,.1,.1,.1)
-#f1.SetLineColor(ROOT.kRed)
-#f1.SetMarkerSize(0)
-#h.Fit("f1")
-#f1.Draw("same")
 
 latex = ROOT.TLatex()
 latex.SetNDC()
@@ -93,7 +82,7 @@ latex.DrawLatex(1-1.1*canvas.GetRightMargin(), 1-canvas.GetTopMargin()+0.2*canva
 latex.SetTextAlign(12)
 
 latex.SetTextSize(0.25*canvas.GetTopMargin())
-latex.DrawLatex(0.65-0.3*canvas.GetRightMargin(), 1-canvas.GetTopMargin()-2.0*canvas.GetTopMargin(), "{reg}Endcap Layer {lay}".format(reg=reg_string, lay=layer))
+latex.DrawLatex(0.75-0.3*canvas.GetRightMargin(), 1-canvas.GetTopMargin()-2.0*canvas.GetTopMargin(), "-Endcap Layer {lay}".format(lay=layer))
 
 latex.SetTextSize(0.5*canvas.GetTopMargin())
 latex.SetTextFont(61)
